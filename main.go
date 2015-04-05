@@ -14,7 +14,7 @@
 // good starting point, but you will certainly need to understand and
 // modify the source code.
 //
-package main // import "rsc.io/c2go"
+package main // import "github.com/glycerine/c2go"
 
 import (
 	"flag"
@@ -23,7 +23,7 @@ import (
 	"log"
 	"os"
 
-	"rsc.io/c2go/cc"
+	"github.com/glycerine/c2go/cc"
 )
 
 var (
