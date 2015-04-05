@@ -49,7 +49,7 @@ func writeGoFiles(cfg *Config, prog *cc.Prog) {
 			case "cmd/new5l", "cmd/new6l", "cmd/new8l", "cmd/new9l":
 				p.Print(`import "cmd/internal/obj"`, "\n")
 				p.Print(`import "cmd/internal/ld"`, "\n")
-			
+
 			case "cmd/internal/gc", "cmd/internal/ld", "cmd/internal/obj/arm", "cmd/internal/obj/ppc64", "cmd/internal/obj/x86", "cmd/internal/obj/amd64":
 				p.Print(`import "cmd/internal/obj"`, "\n")
 			}
@@ -100,7 +100,8 @@ func writeGoFiles(cfg *Config, prog *cc.Prog) {
 		// Not sure where these blank lines come from.
 		buf = bytes.Replace(buf, []byte("{\n\n"), []byte("{\n"), -1)
 
-		buf = fixCopyright(gofile, cfiles[gofile], buf)
+		// jea: don't barf if copyright is missing
+		//buf = fixCopyright(gofile, cfiles[gofile], buf)
 
 		for i, d := range cfg.diffs {
 			if bytes.Contains(buf, d.before) {
